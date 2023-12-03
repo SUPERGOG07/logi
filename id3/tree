@@ -1,0 +1,14 @@
+digraph G {
+	node [fontname=SimSun]
+	edge [fontname=SimSun]
+	0 [label="有自己的房子"]
+	1 [label="是"]
+	0 -> 1 [label="是"]
+	2 [label="有工作"]
+	0 -> 2 [label="否"]
+	3 [label="是"]
+	2 -> 3 [label="是"]
+	4 [label="否"]
+	2 -> 4 [label="否"]
+	rankdir=LR ranksep=0
+}
