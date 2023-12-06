@@ -165,5 +165,6 @@ if __name__ == '__main__':
     plot_model(decision_tree, "tree")
 
     data = ['青年', '否', '否', '一般']
+    print(data)
     result = predict(decision_tree, labels.copy(), data)
     print("预测结果：", result)
