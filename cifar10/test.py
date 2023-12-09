@@ -3,7 +3,7 @@ import torchvision.transforms as transforms
 from torch.utils.data import DataLoader
 from torchvision.datasets import CIFAR10
 
-from model import VGG,densenet
+from network import VGG,densenet
 
 batch_size = 128
 
@@ -19,10 +19,10 @@ test_dataset = CIFAR10(root='./data', train=False, download=True, transform=tran
 test_loader = DataLoader(test_dataset, batch_size=batch_size, shuffle=False, num_workers=4)
 
 # 选择模型
-# model = VGG.vgg16_bn()
+# network = VGG.vgg16_bn()
 model = densenet.DenseNet121()
 
-# model.load_state_dict(torch.load('./pth/cifar10_vgg16.pth'))
+# network.load_state_dict(torch.load('./pth/cifar10_vgg16.pth'))
 model.load_state_dict(torch.load('./pth/cifar10_densenet121.pth'))
 
 

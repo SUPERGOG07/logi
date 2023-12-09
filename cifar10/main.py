@@ -6,7 +6,7 @@ from torch.utils.data import DataLoader
 from torchvision.datasets import CIFAR10
 from tqdm import tqdm
 
-from model import VGG,densenet
+import network
 
 num_epochs = 50
 batch_size = 128
@@ -31,8 +31,9 @@ train_loader = DataLoader(train_dataset, batch_size=batch_size, shuffle=True, nu
 test_loader = DataLoader(test_dataset, batch_size=batch_size, shuffle=False, num_workers=4)
 
 # 选择模型
-model = VGG.vgg16_bn()
-# model = densenet.DenseNet121()
+# network = network.VGG.vgg16_bn()
+# network = network.densenet.DenseNet121()
+model = network.resnet.ResNet34()
 
 # 定义损失函数和优化器
 criterion = nn.CrossEntropyLoss()
@@ -91,9 +92,12 @@ def test(epoch):
     accuracy = test_correct / test_samples * 100
 
     if accuracy > best_accuracy:
-        print('Saving model...')
-        torch.save(model.state_dict(), './pth/cifar10_vgg16.pth')
-        # torch.save(model.state_dict(), './pth/cifar10_densenet121.pth')
+        print('Saving network...')
+
+        # torch.save(model.state_dict(), './pth/cifar10_vgg16.pth')
+        # torch.save(network.state_dict(), './pth/cifar10_densenet121.pth')
+        torch.save(network.state_dict(), './pth/cifar10_resnet34.pth')
+
         best_accuracy = accuracy
 
     print(f"Epoch [{epoch + 1}/{num_epochs}], Test Accuracy: {accuracy:.2f}%, Best Accuracy: {best_accuracy:.2f}%")
