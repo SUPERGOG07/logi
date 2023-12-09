@@ -95,8 +95,8 @@ def test(epoch):
         print('Saving network...')
 
         # torch.save(model.state_dict(), './pth/cifar10_vgg16.pth')
-        # torch.save(network.state_dict(), './pth/cifar10_densenet121.pth')
-        torch.save(network.state_dict(), './pth/cifar10_resnet34.pth')
+        # torch.save(model.state_dict(), './pth/cifar10_densenet121.pth')
+        torch.save(model.state_dict(), './pth/cifar10_resnet34.pth')
 
         best_accuracy = accuracy
 
