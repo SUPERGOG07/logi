@@ -6,7 +6,7 @@ from torch.utils.data import DataLoader
 from torchvision.datasets import CIFAR10
 from tqdm import tqdm
 
-import network
+from network import VGG,densenet,resnet
 
 num_epochs = 50
 batch_size = 128
@@ -31,9 +31,9 @@ train_loader = DataLoader(train_dataset, batch_size=batch_size, shuffle=True, nu
 test_loader = DataLoader(test_dataset, batch_size=batch_size, shuffle=False, num_workers=4)
 
 # 选择模型
-# network = network.VGG.vgg16_bn()
-# network = network.densenet.DenseNet121()
-model = network.resnet.ResNet34()
+# network = VGG.vgg16_bn()
+# network = densenet.DenseNet121()
+model = resnet.ResNet34()
 
 # 定义损失函数和优化器
 criterion = nn.CrossEntropyLoss()
