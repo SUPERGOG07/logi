@@ -20,20 +20,21 @@ model = CNN()
 model.load_state_dict(torch.load('./model/mnist_cnn_model.pth'))
 model.eval()
 
-# 选择一张测试图像进行预测
-image_index = random.randint(0, len(test_dataset) - 1)
-image, label = test_dataset[image_index]
-image = image.unsqueeze(0)
+for i in range(10):
+    # 选择一张测试图像进行预测
+    image_index = random.randint(0, len(test_dataset) - 1)
+    image, label = test_dataset[image_index]
+    image = image.unsqueeze(0)
 
-# 进行预测
-with torch.no_grad():
-    output = model(image)
-    _, predicted = torch.max(output.data, 1)
-    predicted_label = predicted.item()
+    # 进行预测
+    with torch.no_grad():
+        output = model(image)
+        _, predicted = torch.max(output.data, 1)
+        predicted_label = predicted.item()
 
-# 可视化预测结果
-image = image.squeeze().numpy()
-plt.imshow(image, cmap='gray')
-plt.title(f"Predicted: {predicted_label}, Actual: {label}")
-plt.axis('off')
-plt.show()
+    # 可视化预测结果
+    image = image.squeeze().numpy()
+    plt.imshow(image, cmap='gray')
+    plt.title(f"Predicted: {predicted_label}, Actual: {label}")
+    plt.axis('off')
+    plt.show()

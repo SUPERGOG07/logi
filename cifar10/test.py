@@ -19,10 +19,10 @@ test_dataset = CIFAR10(root='./data', train=False, download=True, transform=tran
 test_loader = DataLoader(test_dataset, batch_size=batch_size, shuffle=False, num_workers=4)
 
 # 选择模型
-# network = VGG.vgg16_bn()
+# model = VGG.vgg16_bn()
 model = densenet.DenseNet121()
 
-# network.load_state_dict(torch.load('./pth/cifar10_vgg16.pth'))
+# model.load_state_dict(torch.load('./pth/cifar10_vgg16.pth'))
 model.load_state_dict(torch.load('./pth/cifar10_densenet121.pth'))
 
 

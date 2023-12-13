@@ -31,8 +31,8 @@ train_loader = DataLoader(train_dataset, batch_size=batch_size, shuffle=True, nu
 test_loader = DataLoader(test_dataset, batch_size=batch_size, shuffle=False, num_workers=4)
 
 # 选择模型
-# network = VGG.vgg16_bn()
-# network = densenet.DenseNet121()
+# model = VGG.vgg16_bn()
+# model = densenet.DenseNet121()
 model = resnet.ResNet34()
 
 # 定义损失函数和优化器
