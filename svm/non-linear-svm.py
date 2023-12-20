@@ -1,7 +1,6 @@
-import pandas as pd
 import matplotlib.pyplot as plt
+import pandas as pd
 from sklearn import svm
-import numpy as np
 
 df = pd.read_csv('./data/svmdata2.csv')
 # print(df['X1'])
